@@ -38,6 +38,7 @@ namespace CreateYourTour.Model
         }
         private static string whatIsEmpty(string login, string password)
         {
+            //REVIEW: Строка не проверяется на пустоту с помощью !=""
             if (login != "")
             {
                 if (password != "")

@@ -16,6 +16,7 @@ namespace CreateYourTour.Model
         
         private static bool IsAllFieldsNotNull(string Country, string City, string Hotel, string DateFrom, string DateTo, int AmountOfPeople)
         {
+            //REVIEW: Строки не проверяются на пустоту с помощью == или !=
             if ((Country != "") && (City != "") && (Hotel != "") && (AmountOfPeople != 0) && (DateFrom != "") && (DateTo != ""))
             {
                 return true;

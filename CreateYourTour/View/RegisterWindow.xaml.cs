@@ -27,6 +27,7 @@ namespace CreateYourTour.View
         
         private void DateRegister_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
+            //REVIEW: Это всё надо делать через Binding
             DateTime date = new DateTime();
             date = (DateTime)DateRegister.SelectedDate;
             Console.WriteLine(date.ToString("dd.MM.yyyy"));

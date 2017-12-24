@@ -11,12 +11,14 @@ namespace CreateYourTour.Model
 {
     static class ConnectionToDB
     {
+        //REVIEW: При запуске с рабочего стола - могут быть проблемы
         private static string path = Directory.GetCurrentDirectory();
+        //REVIEW: Path.Combine
         private static string databaseName = @"" + path + "\\Persons.db";
 
         private static string getInfoFromDB(string SELECT_part, string FROM_part, string WHERE_part)
         {
-
+            //REVIEW: Тут может быть куча исключений
             SQLiteConnection dbConnection = new SQLiteConnection(string.Format("Data Source={0}; Version=3", databaseName));
             dbConnection.Open();
 
@@ -36,6 +38,7 @@ namespace CreateYourTour.Model
 
         private static List<string> getListFromDB(string SELECT_part, string FROM_part, string WHERE_part)
         {
+            //REVIEW: И тут может быть куча исключений
             List<string> listOfItems = new List<string>();
 
             SQLiteConnection dbConnection = new SQLiteConnection(string.Format("Data Source={0}; Version=3", databaseName));
@@ -116,6 +119,7 @@ namespace CreateYourTour.Model
 
         private static string CreateSQLInquiry(string tableName, string type, Account account)
         {
+            //REVIEW: Ну, по-хорошему напрашивается enum
             if (type == "insert")
             {
                 return string.Format("{5} into {6} (Name, Birthday, Pasport, Login, Password) values (\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\")", account.getName(), account.getDate(), account.getPasportData(), account.getLogin(), account.getPassword(), type, tableName);
@@ -129,6 +133,7 @@ namespace CreateYourTour.Model
 
         public static void AddAccountToDataBase(Account acc)
         {
+            //REVIEW: Может быть исключение
             SQLiteConnection dbConnection = new SQLiteConnection(string.Format("Data Source={0}; Version=3", databaseName));
             dbConnection.Open();
             string sql = CreateSQLInquiry("Persons", "insert",acc);

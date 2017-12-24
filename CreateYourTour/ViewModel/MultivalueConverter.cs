@@ -13,10 +13,12 @@ namespace CreateYourTour.ViewModel
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
+            //REVIEW: Если values == null, то следующая строка отвалится с NRE
             string[] array = new string[values.Length];
             int i = 0;
             foreach (object obj in values)
             {
+                //REVIEW: Т.к. obj - это object, то он может быть null. Это стоит проверить
                 try
                 {
                     array[i] = System.Convert.ToString(obj);

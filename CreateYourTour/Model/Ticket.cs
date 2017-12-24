@@ -36,6 +36,7 @@ namespace CreateYourTour.Model
 
         private void AddStringToWordFile(string field, int i, Word.Document doc)
         {
+            //REVIEW: Если тут где-то будет null - вылетит исключение
             object startLocation = doc.Sentences[i].End - 5;
             object endLocation = doc.Sentences[i].End - 1;
             Word.Range rng = doc.Range(ref startLocation, ref endLocation);
@@ -47,9 +48,12 @@ namespace CreateYourTour.Model
         {
             var app = new Word.Application();
 
+            //REVIEW: При запуске приложения с рабочего стола поведение может быть неожиданным
             string path = Directory.GetCurrentDirectory();
+            //REVIEW: Path.Combine
             var doc = app.Documents.Open(FileName: @""+ path + "\\Test.docx");
 
+            //REVIEW: И это исключение из метода AddStringToWordFile мы не обрабатываем
             AddStringToWordFile(FIO, 3, doc);
             AddStringToWordFile(DATE, 4, doc);
             AddStringToWordFile(Country,6,doc);
@@ -62,6 +66,7 @@ namespace CreateYourTour.Model
 
             app.Visible = true;
 
+            //REVIEW: Path.Combine
             doc.SaveAs2(FileName: @"" + path + "\\Test_" + FIO + ".docx");
             doc.PrintPreview();
         }

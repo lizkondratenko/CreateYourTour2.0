@@ -26,6 +26,7 @@ namespace CreateYourTour.View
         {
             InitializeComponent();
 
+            //REVIEW: Ticket - это кто? Почему это не делается через биндинг? Ticket не может быть null? 
             tblTourIntro.Text = "Здравствуйте " + Ticket.FIO + "! Подберите себе лучший тур.";
         }
     }

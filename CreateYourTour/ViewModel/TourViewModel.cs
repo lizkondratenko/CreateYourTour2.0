@@ -30,6 +30,8 @@ namespace CreateYourTour.ViewModel
             set
             {
                 selectedCountry = value;
+                //REVIEW: 1. Здесь куча возможностей для NRE
+                //REVIEW: 2. Все эти вещи надо делать через биндинг в самом окне TourWindow
                 EnterModel.tourWindow.cbHotel.Items.Clear();
                 EnterModel.tourWindow.cbHotel.IsEnabled = false;
 
@@ -59,6 +61,8 @@ namespace CreateYourTour.ViewModel
             {
                 selectedCity = value;
 
+                //REVIEW: 1. Здесь куча возможностей для NRE
+                //REVIEW: 2. Все эти вещи надо делать через биндинг в самом окне TourWindow
                 EnterModel.tourWindow.cbAmountOfPeople.Items.Clear();
                 EnterModel.tourWindow.cbAmountOfPeople.IsEnabled = false;
 
@@ -84,6 +88,8 @@ namespace CreateYourTour.ViewModel
             set
             {
                 selectedHotel = value;
+                //REVIEW: 1. Здесь куча возможностей для NRE
+                //REVIEW: 2. Все эти вещи надо делать через биндинг в самом окне TourWindow
                 EnterModel.tourWindow.cbAmountOfPeople.Items.Clear();
                 EnterModel.tourWindow.cbAmountOfPeople.IsEnabled = true;
                 EnterModel.tourWindow.DateFrom.IsEnabled = true;
@@ -109,6 +115,8 @@ namespace CreateYourTour.ViewModel
             get { return selectedDateFrom; }
             set
             {
+                //REVIEW: 1. Здесь куча возможностей для NRE
+                //REVIEW: 2. Все эти вещи надо делать через биндинг в самом окне TourWindow
                 selectedDateFrom = value;
                 EnterModel.tourWindow.DateTo.Text = "";
                 EnterModel.tourWindow.DateTo.IsEnabled = true;

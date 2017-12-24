@@ -11,6 +11,8 @@ namespace CreateYourTour.Model
     {
         private static string whatIsEmpty(string FIO, string Birthday, string Pasport, string Login, string Password)
         {
+            //REVIEW: 1. Строки не проверяются на пустоту с помощью !=""
+            //REVIEW: 2. Лучше делать if (...) return;, а не городить лестницу
             if (FIO != "")
             {
                 if (Birthday != "")
@@ -36,6 +38,7 @@ namespace CreateYourTour.Model
 
         private static string IsDataOk(string Pasport, string Login, string Password)
         {
+            //REVIEW: 1. Лучше делать if (...) return;, а не городить лестницу
             if (Pasport.Length >= 10)
             {
                 if (Login.Length >= 6)
@@ -53,6 +56,7 @@ namespace CreateYourTour.Model
 
         public static void Register_Click(string FIO, string Birthday, string Pasport, string Login, string Password)
         {
+            //REVIEW: Тут напрашивается enum
             switch (whatIsEmpty(FIO, Birthday, Pasport,  Login,  Password))
             {
                 case ("Пароль"):

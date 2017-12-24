@@ -19,6 +19,7 @@ namespace CreateYourTour.ViewModel
         public EnterViewModel()
         {
             LoginCommand = new DelegateCommand<string[]>(str => {
+                //REVIEW: А str=="   " - это нормальное значение? Его не надо проверять?
                 if (str != null)
                 {
                     EnterModel.EnterLogin(str[0], str[1]);
